@@ -1,0 +1,67 @@
+This Android application demonstrates how to use the Activity Result API to pass data between activities in Android using Kotlin.
+Features
+
+MainActivity: Contains a button to launch SecondActivity and displays results returned from it
+SecondActivity: Contains an input field for user text with validation and a submit button to return the data
+Uses the modern ActivityResultLauncher API (replaces deprecated startActivityForResult)
+Input validation in SecondActivity before returning results to MainActivity
+Error handling for empty inputs or canceled operations
+Clean UI with Material Design components
+
+Project Structure
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/activityresultdemo/
+│   │   │   ├── MainActivity.kt
+│   │   │   └── SecondActivity.kt
+│   │   ├── res/
+│   │   │   ├── layout/
+│   │   │   │   ├── activity_main.xml
+│   │   │   │   └── activity_second.xml
+│   │   │   ├── values/
+│   │   │   │   ├── colors.xml
+│   │   │   │   └── strings.xml
+│   │   └── AndroidManifest.xml
+Implementation Details
+MainActivity.kt
+
+Uses registerForActivityResult to create an ActivityResultLauncher
+Handles both successful and canceled results
+Updates UI to display returned text
+Contains an override of the deprecated onActivityResult method for reference
+
+SecondActivity.kt
+
+Contains a TextInputEditText for user input
+Validates input before returning (checks for empty input and minimum length)
+Sets appropriate error messages when validation fails
+Handles back button press with proper result code
+Packages user input in an Intent extra
+
+Input Validation Features
+The app includes several validation steps:
+
+Checks if the input field is empty
+Ensures the input text is at least 3 characters long
+Displays appropriate error messages under the input field
+Prevents invalid data from being returned to MainActivity
+
+Requirements
+
+Android Studio Arctic Fox or newer
+Android SDK level 24 or higher
+Kotlin 1.5 or newer
+
+Getting Started
+
+Clone this repository
+Open the project in Android Studio
+Build and run the application on an emulator or physical device
+
+Technical Notes
+
+Uses ConstraintLayout for responsive UI design
+Implements Material Design components for better UI/UX
+Uses modern Android Activity Result API (ActivityResultContracts)
+Handles configuration changes properly
